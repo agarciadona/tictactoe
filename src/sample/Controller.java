@@ -14,7 +14,17 @@ public class Controller {
     @FXML TextField nombre1, nombre2;
     @FXML Button start;
     boolean turn = false;
-    List<Button> tablero = new ArrayList<>();
+    List<Button> tablero = new ArrayList<Button>(){{
+        add(tecla1);
+        add(tecla2);
+        add(tecla3);
+        add(tecla4);
+        add(tecla5);
+        add(tecla6);
+        add(tecla7);
+        add(tecla8);
+        add(tecla9);
+    }};
 
     //clicar las teclas del tablero
     public void clicarBoton(ActionEvent actionEvent){
@@ -34,8 +44,8 @@ public class Controller {
         }
     }
 
-    public void clickClose(ActionEvent actionEvent) {
-        System.out.println("Hola");
+    public void cerrar(ActionEvent actionEvent) {
+
     }
 
     //modos de juego
@@ -69,10 +79,8 @@ public class Controller {
     //rincon del caos
     //-----------------------------------------------------------
     public void darleStart(){
-        creartablero();
         limpiarTablero();
         activartablero();
-
     }
 
     public void limpiador(){
@@ -90,15 +98,9 @@ public class Controller {
     }
 
     public void limpiarTablero(){
-        tecla1.setText(" ");
-        tecla2.setText(" ");
-        tecla3.setText(" ");
-        tecla4.setText(" ");
-        tecla5.setText(" ");
-        tecla6.setText(" ");
-        tecla7.setText(" ");
-        tecla8.setText(" ");
-        tecla9.setText(" ");
+        for (Button button : Arrays.asList(tecla1, tecla2, tecla3, tecla4, tecla5, tecla6, tecla7, tecla8, tecla9)) {
+            button.setText("?");
+        }
     }
 
     //para cuando empieza o termina la partida
@@ -126,21 +128,6 @@ public class Controller {
         tecla9.setDisable(true);
     }
     //----------------------------------
-
-    //para añadir teclas al tablero
-    public void creartablero(){
-        tablero.add(tecla1);
-        tablero.add(tecla2);
-        tablero.add(tecla3);
-        tablero.add(tecla4);
-        tablero.add(tecla5);
-        tablero.add(tecla6);
-        tablero.add(tecla7);
-        tablero.add(tecla8);
-        tablero.add(tecla9);
-    }
-
-
     public boolean ganar(){
         if(ganaX()){
             System.out.println("Guanya en"+ nombre1.getText()+"!!");

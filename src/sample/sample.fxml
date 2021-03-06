@@ -29,7 +29,7 @@
                     <menus>
                         <Menu mnemonicParsing="false" text="File">
                             <items>
-                                <MenuItem mnemonicParsing="false" onAction="#clickClose" text="Close" />
+                                <MenuItem mnemonicParsing="false" onAction="#cerrar" text="Close" />
                             </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Edit">
@@ -61,15 +61,42 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                        <Button fx:id="btn01" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" />
-                                        <Button fx:id="btn02" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" GridPane.columnIndex="1" />
-                                        <Button fx:id="btn04" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" GridPane.rowIndex="1" />
-                                        <Button fx:id="btn05" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                        <Button fx:id="btn07" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" GridPane.rowIndex="2" />
-                                        <Button fx:id="btn08" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                        <Button fx:id="btn03" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" GridPane.columnIndex="2" />
-                                        <Button fx:id="btn06" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                        <Button fx:id="btn09" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                        <Button fx:id="btn01" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font></Button>
+                                        <Button fx:id="btn02" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font></Button>
+                                        <Button fx:id="btn04" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font></Button>
+                                        <Button fx:id="btn05" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font></Button>
+                                        <Button fx:id="btn07" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font></Button>
+                                        <Button fx:id="btn08" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font></Button>
+                                        <Button fx:id="btn03" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font></Button>
+                                        <Button fx:id="btn06" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font></Button>
+                                        <Button fx:id="btn09" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font></Button>
                                     </children>
                                 </GridPane>
                             </children>
@@ -78,30 +105,34 @@
                             <children>
                                 <VBox prefHeight="369.0" prefWidth="255.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
-                                        <RadioButton fx:id="PvP" mnemonicParsing="false" onAction="#PvP" text="Jugador vs Jugador" textAlignment="RIGHT">
-                                            <VBox.margin>
-                                                <Insets left="20.0" top="20.0" />
-                                            </VBox.margin>
-                                            <toggleGroup>
-                                                <ToggleGroup fx:id="grup1" />
-                                            </toggleGroup>
-                                        </RadioButton>
-                                        <RadioButton fx:id="PvE" mnemonicParsing="false" onAction="#PvE" text="Ordinador vs Jugador" toggleGroup="$grup1">
-                                            <padding>
-                                                <Insets right="20.0" />
-                                            </padding>
-                                            <VBox.margin>
-                                                <Insets left="20.0" top="20.0" />
-                                            </VBox.margin>
-                                        </RadioButton>
-                                        <RadioButton fx:id="EvE" mnemonicParsing="false" onAction="#EvE" text="Ordinador vs Ordinador" toggleGroup="$grup1">
-                                            <padding>
-                                                <Insets right="20.0" />
-                                            </padding>
-                                            <VBox.margin>
-                                                <Insets left="20.0" top="20.0" />
-                                            </VBox.margin>
-                                        </RadioButton>
+                              <VBox prefHeight="90.0" prefWidth="256.0">
+                                 <children>
+                                              <RadioButton fx:id="PvP" mnemonicParsing="false" onAction="#PvP" text="Jugador vs Jugador" textAlignment="RIGHT">
+                                                  <VBox.margin>
+                                                      <Insets left="20.0" top="20.0" />
+                                                  </VBox.margin>
+                                                  <toggleGroup>
+                                                      <ToggleGroup fx:id="grup1" />
+                                                  </toggleGroup>
+                                              </RadioButton>
+                                              <RadioButton fx:id="PvE" mnemonicParsing="false" onAction="#PvE" text="Ordinador vs Jugador" toggleGroup="$grup1">
+                                                  <padding>
+                                                      <Insets right="20.0" />
+                                                  </padding>
+                                                  <VBox.margin>
+                                                      <Insets left="20.0" top="20.0" />
+                                                  </VBox.margin>
+                                              </RadioButton>
+                                              <RadioButton fx:id="EvE" mnemonicParsing="false" onAction="#EvE" text="Ordinador vs Ordinador" toggleGroup="$grup1">
+                                                  <padding>
+                                                      <Insets right="20.0" />
+                                                  </padding>
+                                                  <VBox.margin>
+                                                      <Insets left="20.0" top="20.0" />
+                                                  </VBox.margin>
+                                              </RadioButton>
+                                 </children>
+                              </VBox>
                                         <Text fx:id="j1" strokeType="OUTSIDE" strokeWidth="0.0" text="Jugador1" visible="false">
                                             <VBox.margin>
                                                 <Insets left="20.0" top="20.0" />
