@@ -14,12 +14,14 @@ public class Controller {
     @FXML TextField nombre1, nombre2;
     @FXML Button start;
     boolean turn = false;
+    int maxTurn;
     List<Button> tablero = new ArrayList<Button>(){{
         for (Button button : Arrays.asList(tecla1, tecla2, tecla3, tecla4, tecla5, tecla6, tecla7, tecla8, tecla9)) {
             add(button);
         }
     }};
     //clicar las teclas del tablero
+
     public void clicarBoton(ActionEvent actionEvent){
         if(PvP.isSelected()){
             Button select = (Button) actionEvent.getSource();
@@ -36,6 +38,7 @@ public class Controller {
             ganar();
         }
     }
+
 
     public void cerrar(ActionEvent actionEvent) {
 
@@ -71,9 +74,57 @@ public class Controller {
 
     //rincon del caos
     //-----------------------------------------------------------
+    public void ocultarModos(){
+        PvP.setVisible(false);
+        PvE.setVisible(false);
+        EvE.setVisible(false);
+    }
+    public void revelarModos(){
+        PvP.setVisible(true);
+        PvE.setVisible(true);
+        EvE.setVisible(true);
+    }
+
+    public void contadorEvE(){
+        if(EvE.isSelected()) {
+            limpiarTablero();
+            turn = false;
+            for (int i = 0; i < 9; i++) {
+                partidaCPUs();
+                if (ganar()) {
+                    break;
+
+                }
+            }
+            maxTurn = 9;
+        }
+    }
+
+    private void partidaCPUs() {
+        Random random = new Random();
+        maxTurn = 9;
+        while(maxTurn!=0) {
+            int i = random.nextInt(maxTurn);
+            if (!turn) {
+                tablero.get(i).setText("X");
+                tablero.remove(i);
+                turn = true;
+
+            } else {
+                tablero.get(i).setText("O");
+                tablero.remove(i);
+                turn = false;
+            }
+            maxTurn--;
+        }
+    }
+
     public void darleStart(){
         activartablero();
         limpiarTablero();
+        if(EvE.isSelected()){
+            contadorEvE();
+        }
     }
 
     public void limpiador(){
@@ -82,12 +133,6 @@ public class Controller {
         j2.setVisible(false);
         nombre2.setVisible(false);
         start.setVisible(false);
-    }
-
-    public void ocultarModos(){
-        PvP.setVisible(false);
-        PvE.setVisible(false);
-        EvE.setVisible(false);
     }
 
     public void limpiarTablero(){
@@ -113,17 +158,13 @@ public class Controller {
         if(ganaX()){
             System.out.println("Guanya en"+ nombre1.getText()+"!!");
             desactivartablero();
-            PvP.setVisible(true);
-            PvE.setVisible(true);
-            EvE.setVisible(true);
+            revelarModos();
             return true;
         }
         if(gana0()){
             System.out.println("Guanya en"+ nombre2.getText()+"!!");
             desactivartablero();
-            PvP.setVisible(true);
-            PvE.setVisible(true);
-            EvE.setVisible(true);
+            revelarModos();
             return true;
         }
         return false;
