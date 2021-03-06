@@ -61,39 +61,39 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                        <Button fx:id="btn01" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?">
+                                        <Button fx:id="tecla1" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Button>
-                                        <Button fx:id="btn02" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="1">
+                                        <Button fx:id="tecla2" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="1">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Button>
-                                        <Button fx:id="btn04" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.rowIndex="1">
+                                        <Button fx:id="tecla4" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Button>
-                                        <Button fx:id="btn05" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                        <Button fx:id="tecla5" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Button>
-                                        <Button fx:id="btn07" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.rowIndex="2">
+                                        <Button fx:id="tecla7" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.rowIndex="2">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Button>
-                                        <Button fx:id="btn08" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <Button fx:id="tecla8" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Button>
-                                        <Button fx:id="btn03" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="2">
+                                        <Button fx:id="tecla3" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="2">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Button>
-                                        <Button fx:id="btn06" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                        <Button fx:id="tecla6" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Button>
-                                        <Button fx:id="btn09" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                        <Button fx:id="tecla9" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Button>

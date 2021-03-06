@@ -15,17 +15,10 @@ public class Controller {
     @FXML Button start;
     boolean turn = false;
     List<Button> tablero = new ArrayList<Button>(){{
-        add(tecla1);
-        add(tecla2);
-        add(tecla3);
-        add(tecla4);
-        add(tecla5);
-        add(tecla6);
-        add(tecla7);
-        add(tecla8);
-        add(tecla9);
+        for (Button button : Arrays.asList(tecla1, tecla2, tecla3, tecla4, tecla5, tecla6, tecla7, tecla8, tecla9)) {
+            add(button);
+        }
     }};
-
     //clicar las teclas del tablero
     public void clicarBoton(ActionEvent actionEvent){
         if(PvP.isSelected()){
@@ -79,8 +72,8 @@ public class Controller {
     //rincon del caos
     //-----------------------------------------------------------
     public void darleStart(){
-        limpiarTablero();
         activartablero();
+        limpiarTablero();
     }
 
     public void limpiador(){
@@ -105,27 +98,15 @@ public class Controller {
 
     //para cuando empieza o termina la partida
     public void activartablero(){
-        tecla1.setDisable(false);
-        tecla2.setDisable(false);
-        tecla3.setDisable(false);
-        tecla4.setDisable(false);
-        tecla5.setDisable(false);
-        tecla6.setDisable(false);
-        tecla7.setDisable(false);
-        tecla8.setDisable(false);
-        tecla9.setDisable(false);
+        for (Button button : Arrays.asList(tecla1, tecla2, tecla3, tecla4, tecla5, tecla6, tecla7, tecla8, tecla9)) {
+            button.setDisable(false);
+        }
     }
 
     public void desactivartablero(){
-        tecla1.setDisable(true);
-        tecla2.setDisable(true);
-        tecla3.setDisable(true);
-        tecla4.setDisable(true);
-        tecla5.setDisable(true);
-        tecla6.setDisable(true);
-        tecla7.setDisable(true);
-        tecla8.setDisable(true);
-        tecla9.setDisable(true);
+        for (Button button : Arrays.asList(tecla1, tecla2, tecla3, tecla4, tecla5, tecla6, tecla7, tecla8, tecla9)) {
+            button.setDisable(true);
+        }
     }
     //----------------------------------
     public boolean ganar(){
@@ -157,11 +138,6 @@ public class Controller {
                 (tecla3.getText().equals("0") && tecla5.getText().equals("0") && tecla7.getText().equals("0")) ||
                 (tecla4.getText().equals("0") && tecla5.getText().equals("0") && tecla6.getText().equals("0")) ||
                 (tecla7.getText().equals("0") && tecla8.getText().equals("0") && tecla9.getText().equals("0"))) {
-            desactivartablero();
-            PvP.setVisible(true);
-            PvE.setVisible(true);
-            EvE.setVisible(true);
-            System.out.println("Guanya en"+ nombre2.getText()+"!!");
             return true;
         }else{return false;}
 
@@ -176,11 +152,6 @@ public class Controller {
                 (tecla3.getText().equals("X") && tecla5.getText().equals("X") && tecla7.getText().equals("X")) ||
                 (tecla4.getText().equals("X") && tecla5.getText().equals("X") && tecla6.getText().equals("X")) ||
                 (tecla7.getText().equals("X") && tecla8.getText().equals("X") && tecla9.getText().equals("X"))) {
-            desactivartablero();
-            PvP.setVisible(true);
-            PvE.setVisible(true);
-            EvE.setVisible(true);
-            System.out.println("Guanya en"+ nombre2.getText()+"!!");
             return true;
         }else{return false;}
 
