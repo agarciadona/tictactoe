@@ -1,6 +1,7 @@
 package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -14,39 +15,88 @@ public class Controller {
     @FXML TextField nombre1, nombre2;
     @FXML Button start;
     boolean turn = false;
-    int maxTurn;
+    int maxTurn = 9;
+    int contador = 0;
+    Random random = new Random();
     List<Button> tablero = new ArrayList<Button>(){{
         for (Button button : Arrays.asList(tecla1, tecla2, tecla3, tecla4, tecla5, tecla6, tecla7, tecla8, tecla9)) {
             add(button);
         }
     }};
-    //clicar las teclas del tablero
 
+    List<Button> tableroCPU = new ArrayList<>();
+
+    //clicar las teclas del tabler
     public void clicarBoton(ActionEvent actionEvent){
         if(PvP.isSelected()){
+            ocultarModos();
             Button select = (Button) actionEvent.getSource();
-            System.out.println(select.getId());
             if(!turn){
+                System.out.println(select.getText());
                 select.setText("X");
                 select.setDisable(true);
                 turn = true;
+                contador++;
             }else{
                 select.setText("0");
                 select.setDisable(true);
                 turn = false;
+                contador++;
             }
             ganar();
         }
-    }
 
-
-    public void cerrar(ActionEvent actionEvent) {
-
+        if(PvE.isSelected()){
+            ocultarModos();
+            Button select = (Button) actionEvent.getSource();
+            if(!turn);
+            turn = true;
+            select.setDisable(true);
+            contador++;
+            if(select.getId().equals("tecla1")){
+                tableroCPU.remove(tecla1);
+            }
+            if(select.getId().equals("tecla2")){
+                tableroCPU.remove(tecla2);
+            }
+            if(select.getId().equals("tecla3")){
+                tableroCPU.remove(tecla3);
+            }
+            if(select.getId().equals("tecla4")){
+                tableroCPU.remove(tecla4);
+            }
+            if(select.getId().equals("tecla5")){
+                tableroCPU.remove(tecla5);
+            }
+            if(select.getId().equals("tecla6")){
+                tableroCPU.remove(tecla6);
+            }
+            if(select.getId().equals("tecla7")){
+                tableroCPU.remove(tecla7);
+            }
+            if(select.getId().equals("tecla8")){
+                tableroCPU.remove(tecla8);
+            }
+            if(select.getId().equals("tecla9")){
+                tableroCPU.remove(tecla9);
+            }
+            maxTurn--;
+        }else{
+            if(turn){
+                int i = random.nextInt(maxTurn);
+                tableroCPU.get(i).setText("0");
+                turn = false;
+                tableroCPU.remove(i);
+                maxTurn--;
+            }
+        }
+        ganar();
     }
 
     //modos de juego
     public void PvP(){
         if (PvP.isSelected()){
+            limpiarTablero();
             limpiador();
             j1.setVisible(true);
             nombre1.setVisible(true);
@@ -57,6 +107,7 @@ public class Controller {
     }
 
     public void PvE(){
+         contador = 0;
         if(PvE.isSelected()){
             limpiador();
             j1.setVisible(true);
@@ -66,6 +117,7 @@ public class Controller {
     }
 
     public void EvE(){
+        contador = 0;
         limpiador();
         start.setVisible(true);
     }
@@ -78,6 +130,8 @@ public class Controller {
         PvP.setVisible(false);
         PvE.setVisible(false);
         EvE.setVisible(false);
+        j1.setVisible(false);
+        j2.setVisible(false);
     }
     public void revelarModos(){
         PvP.setVisible(true);
@@ -87,44 +141,49 @@ public class Controller {
 
     public void contadorEvE(){
         if(EvE.isSelected()) {
-            limpiarTablero();
-            turn = false;
             for (int i = 0; i < 9; i++) {
-                partidaCPUs();
+                UnTurnoCPUs();
+                contador++;
                 if (ganar()) {
                     break;
-
                 }
             }
+            turn = false;
             maxTurn = 9;
         }
     }
 
-    private void partidaCPUs() {
-        Random random = new Random();
-        maxTurn = 9;
-        while(maxTurn!=0) {
+    private void UnTurnoCPUs() {
+        boolean valido =  false;
             int i = random.nextInt(maxTurn);
             if (!turn) {
-                tablero.get(i).setText("X");
-                tablero.remove(i);
+                System.out.println(i);
+                tableroCPU.get(i).setText("X");
+                tableroCPU.remove(i);
                 turn = true;
 
+
             } else {
-                tablero.get(i).setText("O");
-                tablero.remove(i);
+                System.out.println(i);
+            tableroCPU.get(i).setText("0");
+                tableroCPU.remove(i);
                 turn = false;
             }
             maxTurn--;
-        }
     }
 
     public void darleStart(){
         activartablero();
         limpiarTablero();
+
         if(EvE.isSelected()){
+            creartableroCPU();
+            limpiarTablero();
             contadorEvE();
         }
+        if(PvE.isSelected());
+        creartableroCPU();
+        limpiarTablero();
     }
 
     public void limpiador(){
@@ -156,18 +215,38 @@ public class Controller {
     //----------------------------------
     public boolean ganar(){
         if(ganaX()){
-            System.out.println("Guanya en"+ nombre1.getText()+"!!");
             desactivartablero();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Partida acabada");
+            alert.setHeaderText(null);
+            alert.setContentText("Ha guanyat "+ nombre1.getText());
+            alert.showAndWait();
             revelarModos();
             return true;
         }
         if(gana0()){
-            System.out.println("Guanya en"+ nombre2.getText()+"!!");
             desactivartablero();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Partida acabada");
+            alert.setHeaderText(null);
+            alert.setContentText("Ha guanyat "+ nombre2.getText());
+            alert.showAndWait();
             revelarModos();
             return true;
         }
-        return false;
+        if(contador == 9 && gana0() == false && ganaX() == false){
+            desactivartablero();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Partida acabada");
+            alert.setHeaderText(null);
+            alert.setContentText("Hi ha hagut un empat");
+            alert.showAndWait();
+            revelarModos();
+            return false;
+        }
+        else{
+            return false;
+        }
     }
 //checks de victorias de los jugadores
     public boolean gana0() {
@@ -197,6 +276,13 @@ public class Controller {
         }else{return false;}
 
     }
+
+    public void creartableroCPU(){
+        for (Button button : Arrays.asList(tecla1, tecla2, tecla3, tecla4, tecla5, tecla6, tecla7, tecla8, tecla9)) {
+            tableroCPU.add(button);
+        }
+    }
+
 //-----------------------------------------------------------
 
     }
