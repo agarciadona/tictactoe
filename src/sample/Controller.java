@@ -21,14 +21,6 @@ public class Controller {
     int maxTurn = 9;
     int contador = 0;
     Random random = new Random();
-
-    //tauler dels jugadors
-    List<Button> tablero = new ArrayList<Button>(){{
-        for (Button button : Arrays.asList(tecla1, tecla2, tecla3, tecla4, tecla5, tecla6, tecla7, tecla8, tecla9)) {
-            add(button);
-        }
-    }};
-
     //tauler on treballa els jugadors CPU
     List<Button> tableroCPU = new ArrayList<>();
     private Scene scene;
@@ -150,7 +142,7 @@ public class Controller {
         PvE.setVisible(true);
         EvE.setVisible(true);
     }
-
+    // realitzar el torns del CPU VS CPU
     public void contadorEvE(){
         if(EvE.isSelected()) {
             for (int i = 0; i < 9; i++) {
@@ -164,7 +156,7 @@ public class Controller {
             maxTurn = 9;
         }
     }
-
+ //Aquest metode fa un torn de la cpu en el mode CPUvsCPU
     private void UnTurnoCPUs() {
         boolean valido =  false;
             int i = random.nextInt(maxTurn);
@@ -183,7 +175,7 @@ public class Controller {
             }
             maxTurn--;
     }
-
+    //el botó d'iniciar ho inicialitza tot en general
     public void darleStart(){
         maxTurn = 9;
         contador = 0;
@@ -200,6 +192,7 @@ public class Controller {
         limpiarTablero();
     }
 
+    //Evita un error amb el taulell que si selecciona un mode de joc durant una partida passes coses inesperades
     public void limpiador(){
         j1.setVisible(false);
         nombre1.setVisible(false);
@@ -207,7 +200,7 @@ public class Controller {
         nombre2.setVisible(false);
         start.setVisible(false);
     }
-
+    // deixar el taulell en el estat inicial
     public void limpiarTablero(){
         for (Button button : Arrays.asList(tecla1, tecla2, tecla3, tecla4, tecla5, tecla6, tecla7, tecla8, tecla9)) {
             button.setText("?");
@@ -227,6 +220,7 @@ public class Controller {
         }
     }
     //----------------------------------
+    //controlador de la victories de un dels jugadors
     public boolean ganar(){
         if(ganaX()){
             desactivartablero();
@@ -290,7 +284,7 @@ public class Controller {
         }else{return false;}
 
     }
-
+    //creador d'un taulell de la cpu
     public void creartableroCPU(){
         for (Button button : Arrays.asList(tecla1, tecla2, tecla3, tecla4, tecla5, tecla6, tecla7, tecla8, tecla9)) {
             tableroCPU.add(button);

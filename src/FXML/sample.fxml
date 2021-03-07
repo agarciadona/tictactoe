@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
@@ -12,14 +12,6 @@
             <children>
                 <MenuBar>
                     <menus>
-                        <Menu mnemonicParsing="false" text="File">
-
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Edit">
-                            <items>
-                                <MenuItem mnemonicParsing="false" text="Delete" />
-                            </items>
-                        </Menu>
                         <Menu mnemonicParsing="false" text="Help">
                             <items>
                                 <MenuItem mnemonicParsing="false" text="About" />
@@ -44,39 +36,39 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     </rowConstraints>
                                     <children>
-                                        <Button fx:id="tecla1" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?">
+                                        <Button fx:id="tecla1" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: white; -fx-border-color: blue;" text="?">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Button>
-                                        <Button fx:id="tecla2" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="1">
+                                        <Button fx:id="tecla2" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: white; -fx-border-color: blue;" text="?" GridPane.columnIndex="1">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Button>
-                                        <Button fx:id="tecla4" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.rowIndex="1">
+                                        <Button fx:id="tecla4" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: white; -fx-border-color: blue;" text="?" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Button>
-                                        <Button fx:id="tecla5" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                        <Button fx:id="tecla5" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: white; -fx-border-color: blue;" text="?" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Button>
-                                        <Button fx:id="tecla7" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.rowIndex="2">
+                                        <Button fx:id="tecla7" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: white; -fx-border-color: blue;" text="?" GridPane.rowIndex="2">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Button>
-                                        <Button fx:id="tecla8" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <Button fx:id="tecla8" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: white; -fx-border-color: blue;" text="?" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Button>
-                                        <Button fx:id="tecla3" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="2">
+                                        <Button fx:id="tecla3" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: white; -fx-border-color: blue;" text="?" GridPane.columnIndex="2">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Button>
-                                        <Button fx:id="tecla6" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                        <Button fx:id="tecla6" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: white; -fx-border-color: blue;" text="?" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Button>
-                                        <Button fx:id="tecla9" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: beige; -fx-border-color: black;" text="?" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                        <Button fx:id="tecla9" disable="true" mnemonicParsing="false" onAction="#clicarBoton" prefHeight="133.0" prefWidth="112.0" style="-fx-background-color: white; -fx-border-color: blue;" text="?" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                  <font>
                                     <Font size="25.0" />
                                  </font></Button>
@@ -86,10 +78,15 @@
                         </AnchorPane>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                             <children>
-                                <VBox prefHeight="369.0" prefWidth="255.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <VBox prefHeight="369.0" prefWidth="255.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
-                              <VBox prefHeight="90.0" prefWidth="256.0">
+                              <VBox prefHeight="94.0" prefWidth="256.0">
                                  <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menú tres en ratlla" textAlignment="CENTER" wrappingWidth="256.427734375">
+                                       <font>
+                                          <Font name="Calibri Italic" size="22.0" />
+                                       </font>
+                                    </Text>
                                               <RadioButton fx:id="PvP" mnemonicParsing="false" onAction="#PvP" text="Jugador vs Jugador" textAlignment="RIGHT">
                                                   <VBox.margin>
                                                       <Insets left="20.0" top="20.0" />
@@ -121,9 +118,9 @@
                                                 <Insets left="20.0" top="20.0" />
                                             </VBox.margin>
                                         </Text>
-                                        <TextField fx:id="nombre1" text="Jugador 1" visible="false">
+                                        <TextField fx:id="nombre1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="236.0" text="Jugador 1" visible="false">
                                             <VBox.margin>
-                                                <Insets left="20.0" top="5.0" />
+                                                <Insets left="10.0" top="5.0" />
                                             </VBox.margin>
                                         </TextField>
                                         <Text fx:id="j2" strokeType="OUTSIDE" strokeWidth="0.0" text="Jugador 2" visible="false">
@@ -131,14 +128,14 @@
                                                 <Insets left="20.0" top="20.0" />
                                             </VBox.margin>
                                         </Text>
-                                        <TextField fx:id="nombre2" text="Jugador 2" visible="false">
+                                        <TextField fx:id="nombre2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="236.0" text="Jugador 2" visible="false">
                                             <VBox.margin>
-                                                <Insets left="20.0" top="5.0" />
+                                                <Insets left="10.0" top="5.0" />
                                             </VBox.margin>
                                         </TextField>
-                                        <Button fx:id="start" mnemonicParsing="false" onAction="#darleStart" text="START" visible="false">
+                                        <Button fx:id="start" alignment="CENTER" mnemonicParsing="false" onAction="#darleStart" text="START" visible="false">
                                             <VBox.margin>
-                                                <Insets left="90.0" top="20.0" />
+                                                <Insets left="100.0" top="60.0" />
                                             </VBox.margin>
                                         </Button>
                                     </children>
