@@ -1,0 +1,10 @@
+.root{
+   -fx-background: rgb(255,255,255);
+}
+.menu-bar .label {
+    -fx-text-fill: black;
+}
+
+.context-menu {
+    -fx-background-color: derive(#ffffff,50%);
+}

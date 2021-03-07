@@ -1,11 +1,14 @@
 package sample;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import java.util.*;
 
 public class Controller {
@@ -18,26 +21,31 @@ public class Controller {
     int maxTurn = 9;
     int contador = 0;
     Random random = new Random();
+
+    //tauler dels jugadors
     List<Button> tablero = new ArrayList<Button>(){{
         for (Button button : Arrays.asList(tecla1, tecla2, tecla3, tecla4, tecla5, tecla6, tecla7, tecla8, tecla9)) {
             add(button);
         }
     }};
 
+    //tauler on treballa els jugadors CPU
     List<Button> tableroCPU = new ArrayList<>();
+    private Scene scene;
+    private Stage stage;
 
     //clicar las teclas del tabler
-    public void clicarBoton(ActionEvent actionEvent){
-        if(PvP.isSelected()){
-            ocultarModos();
+    public void clicarBoton(ActionEvent actionEvent) {
+        //aquesta part es pels jugador vs jugador
+        if (PvP.isSelected()) {
             Button select = (Button) actionEvent.getSource();
-            if(!turn){
+            if (!turn) {
                 System.out.println(select.getText());
                 select.setText("X");
                 select.setDisable(true);
                 turn = true;
                 contador++;
-            }else{
+            } else {
                 select.setText("0");
                 select.setDisable(true);
                 turn = false;
@@ -45,55 +53,58 @@ public class Controller {
             }
             ganar();
         }
-
-        if(PvE.isSelected()){
+        //aquesta part es pels jugador vs ordinador
+        if (PvE.isSelected()) {
             ocultarModos();
             Button select = (Button) actionEvent.getSource();
-            if(!turn);
+            if (!turn) ;
             turn = true;
+            select.setText("X");
             select.setDisable(true);
             contador++;
-            if(select.getId().equals("tecla1")){
+            if (select.getId().equals("tecla1")) {
                 tableroCPU.remove(tecla1);
             }
-            if(select.getId().equals("tecla2")){
+            if (select.getId().equals("tecla2")) {
                 tableroCPU.remove(tecla2);
             }
-            if(select.getId().equals("tecla3")){
+            if (select.getId().equals("tecla3")) {
                 tableroCPU.remove(tecla3);
             }
-            if(select.getId().equals("tecla4")){
+            if (select.getId().equals("tecla4")) {
                 tableroCPU.remove(tecla4);
             }
-            if(select.getId().equals("tecla5")){
+            if (select.getId().equals("tecla5")) {
                 tableroCPU.remove(tecla5);
             }
-            if(select.getId().equals("tecla6")){
+            if (select.getId().equals("tecla6")) {
                 tableroCPU.remove(tecla6);
             }
-            if(select.getId().equals("tecla7")){
+            if (select.getId().equals("tecla7")) {
                 tableroCPU.remove(tecla7);
             }
-            if(select.getId().equals("tecla8")){
+            if (select.getId().equals("tecla8")) {
                 tableroCPU.remove(tecla8);
             }
-            if(select.getId().equals("tecla9")){
+            if (select.getId().equals("tecla9")) {
                 tableroCPU.remove(tecla9);
             }
             maxTurn--;
-        }else{
-            if(turn){
-                int i = random.nextInt(maxTurn);
-                tableroCPU.get(i).setText("0");
-                turn = false;
-                tableroCPU.remove(i);
-                maxTurn--;
+            if(contador != 9) {
+                if (turn) {
+                    int i = random.nextInt(maxTurn);
+                    tableroCPU.get(i).setText("0");
+                    tableroCPU.get(i).setDisable(true);
+                    turn = false;
+                    tableroCPU.remove(i);
+                    maxTurn--;
+                    contador++;
+                }
             }
+            }
+            ganar();
         }
-        ganar();
-    }
-
-    //modos de juego
+    //Botons de mode de joc
     public void PvP(){
         if (PvP.isSelected()){
             limpiarTablero();
@@ -107,7 +118,6 @@ public class Controller {
     }
 
     public void PvE(){
-         contador = 0;
         if(PvE.isSelected()){
             limpiador();
             j1.setVisible(true);
@@ -117,6 +127,7 @@ public class Controller {
     }
 
     public void EvE(){
+
         contador = 0;
         limpiador();
         start.setVisible(true);
@@ -124,12 +135,13 @@ public class Controller {
     //-----------------------------------------------------------
 
 
-    //rincon del caos
-    //-----------------------------------------------------------
+    //Secció de metodes
     public void ocultarModos(){
         PvP.setVisible(false);
         PvE.setVisible(false);
         EvE.setVisible(false);
+        nombre1.setVisible(false);
+        nombre2.setVisible(false);
         j1.setVisible(false);
         j2.setVisible(false);
     }
@@ -173,9 +185,11 @@ public class Controller {
     }
 
     public void darleStart(){
+        maxTurn = 9;
+        contador = 0;
         activartablero();
         limpiarTablero();
-
+        ocultarModos();
         if(EvE.isSelected()){
             creartableroCPU();
             limpiarTablero();
@@ -283,7 +297,13 @@ public class Controller {
         }
     }
 
-//-----------------------------------------------------------
-
+    public void setScene(Scene scene) {
+        this.scene = scene;
     }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
+}
 

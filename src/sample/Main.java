@@ -10,12 +10,18 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Tic Tac Toe");
-        primaryStage.setScene(new Scene(root, 600, 400));
+        String cssDarkMode = getClass().getResource("../css/light.css").toExternalForm();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/sample.fxml"));
+        Parent root = loader.load();
+        Controller controller = loader.getController();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(cssDarkMode);
+        controller.setScene(scene);
+        controller.setStage(primaryStage);
+        primaryStage.setScene(scene);
         primaryStage.show();
-    }
 
+    }
 
     public static void main(String[] args) {
         launch(args);
